@@ -16,176 +16,176 @@ const schoolIdentificantion = sequelize.define("school_identification",{
         type:Sequelize.STRING
     },
     manager_name:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     manager_role:{
-        allowNull:null,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     manager_email:{
-        allowNull:null,
+        allowNull:true,
         type:Sequelize.STRING
     },
     situation:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     initial_date:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     final_date:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     name:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     latitude:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     longitude:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     cep:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     address:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     address_number:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     address_complement:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     address_neighborhood:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     edcenso_uf_fk:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     edcenso_city_fk:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     edcenso_district_fk:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     ddd:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     phone_number:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     public_phone_number:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     other_phone_number:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     fax_number:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     email:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     edcenso_regional_education_organ_fk:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     administrative_dependence:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     location:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     private_school_category:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     public_contract:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     private_school_business_or_individual:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     private_school_syndicate_or_association:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     private_school_ong_or_oscip:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     private_school_non_profit_institutions:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     private_school_s_system:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     private_school_maintainer_cnpj:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     private_school_cnpj:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     offer_or_linked_unity:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     inep_head_school:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     ies_code:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     regulation:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.INTEGER
     },
     logo_file_name:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     logo_file_type:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     logo_file_content:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     },
     act_of_acknowledgement:{
-        allowNull:false,
+        allowNull:true,
         type:Sequelize.STRING
     }
-});
+},{tableName:"school_identification",timestamps:false});
 module.exports = schoolIdentificantion;
