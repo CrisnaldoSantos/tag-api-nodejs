@@ -8,9 +8,11 @@ const schoolStructure = sequelize.define("school_structure",{
     },
     school_inep_id_fk:{
         type:Sequelize.STRING,
-        references:'school_identification',
-        referencesKey:'inep_id',
-        primaryKey: true
+        references:{
+            model:'school_identification',
+            key:'inep_id'
+        },
+        primaryKey:true
     },
     operation_location_building:{
         type:Sequelize.INTEGER,
@@ -418,8 +420,10 @@ const schoolStructure = sequelize.define("school_structure",{
     },
     edcenso_native_languages_fk:{
         type:Sequelize.INTEGER,
-        references:'edcenso_native_languages',
-        referencesKey:'id'
+        references:{
+            model:'edcenso_native_languages',
+            key:'id'
+        }
     },
     brazil_literate:{
         type:Sequelize.INTEGER,
