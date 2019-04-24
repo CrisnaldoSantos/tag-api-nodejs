@@ -2,6 +2,8 @@ const http = require("http");
 const express = require("express");
 const status = require("http-status");
 const schoolRoute = require("./routes/schoolIdentification");
+const edcensoLanguegesRoute = require("./routes/edcensoNativeLanguages");
+const schollStructureRoute = require("./routes/schoolStructure");
 const sequelize = require("./database/database");
 
 const app = express();
@@ -9,7 +11,8 @@ const app = express();
 app.use(express.json());
 
 app.use("/schoolIdentification", schoolRoute);
-
+app.use("/edcensoNativeLanguages", edcensoLanguegesRoute);
+app.use("/schoolStructure", schollStructureRoute);
 app.use((request, response, next) => {
   response.status(status.NOT_FOUND).send();
 });
