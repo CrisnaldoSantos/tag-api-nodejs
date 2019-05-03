@@ -1,5 +1,5 @@
 const edcensoNativeLanguages = require('../model/EdcensoNativeLanguages');
-
+const Status = require("http-status");
 //cria um novo registro
 exports.actionCreate = (request,response,next)=>{
     const name = request.body.name
@@ -25,21 +25,20 @@ exports.searchAll = (request, response, next) => {
     limite = limite > ITENS_POR_PAGINA || limite <= 0 ? ITENS_POR_PAGINA : limite;
     pagina = pagina <= 0 ? 0 : pagina * limite;
   
-    schoolIdentification.findAll({ limit: limite, offset: pagina })
+    edcensoNativeLanguages.findAll({ limit: limite, offset: pagina })
       .then(EdcensoNativeLanguages => {
         response.send(EdcensoNativeLanguages);
       })
       .catch(error => next(error));
   };
 
-//Busca um único registro a partir de um inep_id
-exports.search = (request, response, next) => {
+  exports.buscarUm = (request, response, next) => {
     const id = request.params.id;
   
     edcensoNativeLanguages.findById(id)
       .then(EdcensoNativeLanguages => {
         if (EdcensoNativeLanguages) {
-          response.status(status.OK).send(spoiler);
+          response.status(status.OK).send(EdcensoNativeLanguages);
         } else {
           response.status(status.NOT_FOUND).send();
         }
@@ -47,11 +46,26 @@ exports.search = (request, response, next) => {
       .catch(error => next(error));
   };
 
-  //Atualiza um registro com base no inep_id
-  exports.update = (request, response, next) => {
+//Busca um único registro a partir de um id
+exports.search = (request, response, next) => {
     const id = request.params.id;
   
-    edcensoNativeLanguages.findById(id)
+    edcensoNativeLanguages.findById(id).then((EdcensoNativeLanguages) => 
+      {
+        if (EdcensoNativeLanguages) {
+          response.send(EdcensoNativeLanguages);
+        } else {
+          response.status(Status.NOT_FOUND).send();
+        }
+      })
+      .catch(error => next(error));
+  };
+
+  //Atualiza um registro com base no inep_id
+  exports.update = (request, response, next) => {
+    const id_enl = request.params.id_enl;
+  
+    edcensoNativeLanguages.findByPK(id_enl)
       .then(EdcensoNativeLanguages => {
         if (EdcensoNativeLanguages) {
             edcensoNativeLanguages.update(

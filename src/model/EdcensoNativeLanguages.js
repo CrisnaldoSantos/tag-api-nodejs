@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../database/database");
-const EdcensoNativeLanguages = sequelize.define("edcenso_native_languages",{
+const EdcensoNativeLanguages = sequelize.define("EdcensoNativeLanguages",{
     id:{
         primaryKey:true,
         type:Sequelize.INTEGER,
