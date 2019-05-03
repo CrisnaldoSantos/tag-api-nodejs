@@ -50,7 +50,7 @@ exports.searchAll = (request, response, next) => {
 exports.search = (request, response, next) => {
     const id = request.params.id;
   
-    edcensoNativeLanguages.findById(id).then((EdcensoNativeLanguages) => 
+    edcensoNativeLanguages.findByPk(id).then((EdcensoNativeLanguages) => 
       {
         if (EdcensoNativeLanguages) {
           response.send(EdcensoNativeLanguages);
