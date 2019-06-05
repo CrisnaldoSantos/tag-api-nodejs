@@ -1,10 +1,21 @@
-const edcensoNativeLanguages = require('../model/EdcensoNativeLanguages');
+const edcensoCity = require('../model/EdcensoCity');
 const Status = require("http-status");
 //cria um novo registro
 exports.actionCreate = (request,response,next)=>{
-    const name = request.body.name
-    edcensoNativeLanguages.create({
-        name:name
+    const edcenso_uf_fk = request.body.edcenso_uf_fk;
+    const name = request.body.name;
+    const cep_initial = request.body.cep_initial;
+    const cep_final = request.body.cep_final;
+    const ddd1 = request.body.ddd1;
+    const ddd2 = request.body.ddd2;
+
+    edcensoCity.create({
+        edcenso_uf_fk:edcenso_uf_fk,
+        name:name,
+        cep_initial:cep_initial,
+        cep_final:cep_final,
+        ddd1:ddd1,
+        ddd2:ddd2
     }).then(()=>{
         response.status(201).send();
     }).catch(error=>next(error));

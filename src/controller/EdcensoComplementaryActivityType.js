@@ -1,9 +1,9 @@
-const edcensoNativeLanguages = require('../model/EdcensoNativeLanguages');
+const edcensoComplementaryActivityType = require('../model/EdcensoComplementaryActivityType');
 const Status = require("http-status");
 //cria um novo registro
 exports.actionCreate = (request,response,next)=>{
     const name = request.body.name
-    edcensoNativeLanguages.create({
+    edcensoComplementaryActivityType.create({
         name:name
     }).then(()=>{
         response.status(201).send();
@@ -25,9 +25,9 @@ exports.searchAll = (request, response, next) => {
     limite = limite > ITENS_POR_PAGINA || limite <= 0 ? ITENS_POR_PAGINA : limite;
     pagina = pagina <= 0 ? 0 : pagina * limite;
   
-    edcensoNativeLanguages.findAll({ limit: limite, offset: pagina })
-      .then(EdcensoNativeLanguages => {
-        response.send(EdcensoNativeLanguages);
+    edcensoComplementaryActivityType.findAll({ limit: limite, offset: pagina })
+      .then(EdcensoComplementaryActivityType => {
+        response.send(EdcensoComplementaryActivityType);
       })
       .catch(error => next(error));
   };
@@ -36,10 +36,10 @@ exports.searchAll = (request, response, next) => {
 exports.search = (request, response, next) => {
     const id = request.params.id;
   
-    edcensoNativeLanguages.findByPk(id).then((EdcensoNativeLanguages) => 
+    edcensoComplementaryActivityType.findByPk(id).then((EdcensoComplementaryActivityType) => 
       {
-        if (EdcensoNativeLanguages) {
-          response.send(EdcensoNativeLanguages);
+        if (EdcensoComplementaryActivityType) {
+          response.send(EdcensoComplementaryActivityType);
         } else {
           response.status(Status.NOT_FOUND).send();
         }
@@ -52,9 +52,9 @@ exports.search = (request, response, next) => {
     const id_enl = request.params.id_enl;
   
     edcensoNativeLanguages.findByPK(id_enl)
-      .then(EdcensoNativeLanguages => {
-        if (EdcensoNativeLanguages) {
-            edcensoNativeLanguages.update(
+      .then(EdcensoComplementaryActivityType => {
+        if (EdcensoComplementaryActivityType) {
+            edcensoComplementaryActivityType.update(
             {
                 name:name
             },
@@ -75,10 +75,10 @@ exports.search = (request, response, next) => {
   exports.delete = (request, response, next) => {
     const id = request.params.id;
   
-    edcensoNativeLanguages.findById(id)
-      .then(EdcensoNativeLanguages => {
-        if (EdcensoNativeLanguages) {
-        edcensoNativeLanguages.destroy({
+    edcensoComplementaryActivityType.findById(id)
+      .then(EdcensoComplementaryActivityType => {
+        if (EdcensoComplementaryActivityType) {
+        edcensoComplementaryActivityType.destroy({
             where: { id: id }
           })
             .then(() => {

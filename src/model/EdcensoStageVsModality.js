@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../database/database");
-const EdcensoNativeLanguages = sequelize.define("EdcensoNativeLanguages",{
+const EdcensoStageVsModality = sequelize.define("EdcensoStageVsModality",{
     id:{
         primaryKey:true,
         type:Sequelize.INTEGER(11),
@@ -10,6 +10,10 @@ const EdcensoNativeLanguages = sequelize.define("EdcensoNativeLanguages",{
     name:{
         allowNull:false,
         type:Sequelize.STRING(100)
+    },
+    stage:{
+        allowNull:false,
+        type:Sequelize.INTEGER(11)
     }
-},{tableName:"edcenso_native_languages",timestamps:false});
-module.exports = EdcensoNativeLanguages;
+},{tableName:"edcenso_stage_vs_modality",timestamps:false});
+module.exports = EdcensoStageVsModality;

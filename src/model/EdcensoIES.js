@@ -1,0 +1,54 @@
+const Sequelize = require("sequelize");
+const sequelize = require("../database/database");
+const EdcensoIES = sequelize.define("EdcensoIES",{
+    id:{
+        primaryKey:true,
+        type:Sequelize.INTEGER,
+        allowNull:false,
+        unique:true
+    },
+    name:{
+        allowNull:false,
+        type:Sequelize.STRING(150),
+        defaultValue:null
+    },
+    edcenso_uf_fk:{
+        type:Sequelize.INTEGER(11),
+        allowNull:false,
+        references:{
+            model:'edcenso_uf',
+            key:'id'
+        },
+        defaultValue:null
+    },
+    edcenso_city_fk:{
+        type:Sequelize.INTEGER(11),
+        allowNull:false,
+        references:{
+            model:'edcenso_city',
+            key:'id'
+        },
+        defaultValue:null
+    },
+    administrative_dependency_code:{
+        allowNull:false,
+        type:Sequelize.INTEGER,
+        defaultValue:null
+    },
+    administrative_dependency_name:{
+        allowNull:false,
+        type:Sequelize.STRING,
+        defaultValue:null
+    },
+    institution_type:{
+        allowNull:false,
+        type:Sequelize.STRING,
+        defaultValue:null
+    },
+    working_status:{
+        allowNull:false,
+        type:Sequelize.STRING,
+        defaultValue:null
+    }
+},{tableName:"edcenso_ies",timestamps:false});
+module.exports = EdcensoIES;

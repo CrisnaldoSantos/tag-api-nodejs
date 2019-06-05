@@ -1,0 +1,67 @@
+const Sequelize = require("sequelize");
+const sequelize = require("../database/database");
+const Grade = sequelize.define("Grade",{
+    id:{
+        primaryKey:true,
+        type:Sequelize.INTEGER,
+        allowNull:false,
+        autoIncrement:true
+    },
+    grade1:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    grade2:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    grade3:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    grade4:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    recovery_grade1:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    recovery_grade2:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    recovery_grade3:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    recovery_grade4:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    recovery_final_grade:{
+        defaultValue:null,
+        type:Sequelize.FLOAT.UNSIGNED
+    },
+    discipline_fk:{
+        type:Sequelize.INTEGER,
+        allowNull:false,
+        references:{
+            model:'edcenso_discipline',
+            key:'id'
+        }
+    },
+    enrollment_fk:{
+        type:Sequelize.INTEGER,
+        allowNull:false,
+        references:{
+            model:'student_enrollment',
+            key:'id'
+        }
+    },
+    fkid:{
+        defaultValue:null,
+        type:Sequelize.STRING(40)
+    }
+},{tableName:"grade",timestamps:false});
+module.exports = EdcensoUf;

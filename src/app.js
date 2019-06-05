@@ -1,16 +1,15 @@
 const http = require("http");
 const express = require("express");
 const status = require("http-status");
-const spoilersRoute = require("./routes/spoilers");
 const edcensoNLRoute = require("./routes/edcensoNativeLanguages");
+const edcensoCATRoute = require("./routes/edcensoComplementaryActivityType");
 const sequelize = require("./database/database");
 
 const app = express();
 
 app.use(express.json());
-
-app.use("/api", spoilersRoute);
 app.use("/edcensoNL",edcensoNLRoute);
+app.use("/edcensoCAT",edcensoCATRoute);
 app.use((request, response, next) => {
   response.status(status.NOT_FOUND).send();
 });
